@@ -30,10 +30,10 @@ class MoviesController < ApplicationController
 
     save_status = @movie.save
 
-    if save_status == true
-      redirect_to("/movies/#{@movie.id}", :notice => "Movie created successfully.")
+    if @movie.save
+      redirect_to :back, :notice => "Movie created successfully."
     else
-      render("movies/new.html.erb")
+      render 'new'
     end
   end
 

@@ -28,10 +28,10 @@ class DirectorsController < ApplicationController
 
     save_status = @director.save
 
-    if save_status == true
-      redirect_to("/directors/#{@director.id}", :notice => "Director created successfully.")
+    if @director.save
+      redirect_to "/directors", :notice => "Director created successfully."
     else
-      render("directors/new.html.erb")
+      render 'new'
     end
   end
 
@@ -51,11 +51,12 @@ class DirectorsController < ApplicationController
 
     save_status = @director.save
 
-    if save_status == true
-      redirect_to("/directors/#{@director.id}", :notice => "Director updated successfully.")
+    if @director.save
+      redirect_to "/directors", :notice => "Director updated successfully."
     else
-      render("directors/edit.html.erb")
+      render 'edit'
     end
+
   end
 
   def destroy
